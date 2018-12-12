@@ -5,6 +5,7 @@ import {
 } from 'react-apollo';
 
 import AddChannel from './AddChannel';
+import RemoveChannel from './RemoveChannel';
 
 const ChannelsList = ({ data: {loading, error, channels }}) => {
   if (loading) {
@@ -18,7 +19,10 @@ const ChannelsList = ({ data: {loading, error, channels }}) => {
     <div className="channelsList">
       <AddChannel />
       { channels.map( ch => 
-        (<div key={ch.id} className={'channel ' + (ch.id < 0 ? 'optimistic' : '')}>{ch.name}</div>)
+        (<div key={ch.id} className={'channel ' + (ch.id < 0 ? 'optimistic' : '')}>
+          <div>{ch.id}</div><div>{ch.name}</div><div><RemoveChannel id={ch.id}/></div>
+          </div>
+          )
       )}
     </div>
   );
@@ -34,5 +38,5 @@ export const channelsListQuery = gql`
 `;
 
 export default graphql(channelsListQuery, {
-  options: { pollInterval: 5000 },
+  options: { pollInterval: 10000 },
 })(ChannelsList);

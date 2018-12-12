@@ -63,7 +63,7 @@ div.optimistic {
   color: rgba(255, 255, 255, 0.5);
 }
 
-div.channelsList input {
+div.channelsList input[type="text"] {
   width: 200px;
   background-color: transparent;
   padding: 10px 20px 10px 30px;
@@ -74,6 +74,10 @@ div.channelsList input {
   font-weight: 300;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: 300ms all ease-out;
+}
+
+div.channelsList input[type="button"]:hover {
+  cursor: pointer;
 }
 
 div.channelsList:before {
