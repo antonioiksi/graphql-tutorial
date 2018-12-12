@@ -36,4 +36,5 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
-*/package-lock.json
+client/package-lock.json
+server/package-lock.json
